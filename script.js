@@ -104,7 +104,8 @@
         if (!response.ok) {
             throw new Error(result.message || result.error || 'Request failed');
         }
-        if (result.success !== 'true' || !result.uuid || !result.url) {
+        const isSuccess = result.success === 'true' || result.success === true;
+        if (!isSuccess) {
             throw new Error(result.message || result.error || 'Invalid response from server');
         }
         return result;
