@@ -23,10 +23,11 @@
         }
     }
 
-    function saveApplicationData(firstName, lastName, phone) {
+    function saveApplicationData(firstName, lastName, email, phone) {
         const data = JSON.stringify({
             firstName: firstName,
             lastName: lastName,
+            email: email,
             phone: phone,
             submitted: true
         });
@@ -35,7 +36,7 @@
 
     function showSubmittedState(data) {
         const form = document.getElementById('applicationForm');
-        const inputs = form.querySelectorAll('input[type="text"], input[type="tel"]');
+        const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
         const submitBtn = document.getElementById('submitBtn');
         const changeBtn = document.getElementById('changeBtn');
 
@@ -50,7 +51,7 @@
 
     function showEditState() {
         const form = document.getElementById('applicationForm');
-        const inputs = form.querySelectorAll('input[type="text"], input[type="tel"]');
+        const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
         const submitBtn = document.getElementById('submitBtn');
         const changeBtn = document.getElementById('changeBtn');
 
@@ -82,14 +83,16 @@
         document.body.style.overflow = '';
     }
 
-    async function submitToApi(firstName, lastName, phone) {
+    async function submitToApi(firstName, lastName, email, phone) {
         const response = await fetch(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 first_name: firstName,
                 last_name: lastName,
-                phone: phone
+                email: email,
+                phone: phone,
+                country: 'CA'
             })
         });
         let result;
@@ -120,15 +123,16 @@
             e.preventDefault();
             const firstName = document.getElementById('firstName').value.trim();
             const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
 
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
 
             try {
-                await submitToApi(firstName, lastName, phone);
-                saveApplicationData(firstName, lastName, phone);
-                showSubmittedState({ firstName: firstName, lastName: lastName, phone: phone });
+                await submitToApi(firstName, lastName, email, phone);
+                saveApplicationData(firstName, lastName, email, phone);
+                showSubmittedState({ firstName: firstName, lastName: lastName, email: email, phone: phone });
                 showModal('Success', 'Application submitted successfully. Thank you!');
             } catch (err) {
                 showModal('Error', err.message || 'Failed to submit. Please try again.');
