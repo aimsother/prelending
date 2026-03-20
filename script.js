@@ -135,6 +135,7 @@
 
             try {
                 await submitToApi(firstName, lastName, email, phone);
+                if (typeof fbq === 'function') fbq('track', 'Lead');
                 saveApplicationData(firstName, lastName, email, phone);
                 showSubmittedState({ firstName: firstName, lastName: lastName, email: email, phone: phone });
                 showModal('Success', 'Application submitted successfully. Thank you!');
