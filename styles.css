@@ -117,6 +117,49 @@ body {
     box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.15);
 }
 
+.phone-field-wrap {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.phone-field-wrap:focus-within {
+    border-color: var(--canada-red);
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.15);
+}
+
+.phone-prefix {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0.65rem 0.75rem 1rem;
+    background: #f3f3f3;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-dark);
+    border-right: 1px solid var(--border-color);
+    user-select: none;
+    letter-spacing: 0.02em;
+}
+
+.form-group .phone-input {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.form-group .phone-input:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+
 .submit-btn {
     width: 100%;
     padding: 0.875rem 1.5rem;

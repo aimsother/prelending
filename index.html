@@ -55,8 +55,11 @@
                     <input type="email" id="email" name="email" required placeholder="Enter your email address">
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                    <label for="phone" id="phone-label">Phone</label>
+                    <div class="phone-field-wrap" role="group" aria-labelledby="phone-label">
+                        <span class="phone-prefix" aria-hidden="true">+1</span>
+                        <input type="tel" id="phone" name="phone" required class="phone-input" maxlength="14" inputmode="numeric" autocomplete="tel-national" placeholder="(555) 123-4567" data-phone-mask="ca">
+                    </div>
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="submit-btn" id="submitBtn">Submit</button>
